@@ -1,0 +1,10 @@
+
+G
+java:S11534"1Directly append the argument of String.valueOf().(‡¶Ó
+N	java:S1065"9Replace this use of System.out or System.err by a logger.(¤—³Ü
+N	java:S1067"9Replace this use of System.out or System.err by a logger.(ò¤µæ
+S	java:S1068"9Replace this use of System.out or System.err by a logger.(¹Ö¤’øÿÿÿÿ
+U	java:S1069"9Replace this use of System.out or System.err by a logger.(ò¤µæ8ÔĞŠ­å0
+U	java:S106@"9Replace this use of System.out or System.err by a logger.(Øã™8ó½Œ­å0
+G
+java:S1602I",Remove useless curly braces around statement(ƒîó½ıÿÿÿÿ
