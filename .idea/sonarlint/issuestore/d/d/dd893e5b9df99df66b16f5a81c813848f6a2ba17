@@ -1,17 +1,0 @@
-
-t
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Á·é‚ýÿÿÿÿ
-o
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(›Ž©µ
-W
-java:S49731"<Strings and Boxed types should be compared using "equals()".(æ”àñûÿÿÿÿ
-0
-java:S1220""Move this file to a named package.
-S	java:S106"9Replace this use of System.out or System.err by a logger.(¸çê‚ÿÿÿÿÿ
-S	java:S106"9Replace this use of System.out or System.err by a logger.(£¨ÐÚþÿÿÿÿ
-S	java:S106"9Replace this use of System.out or System.err by a logger.(§­ËŸýÿÿÿÿ
-N	java:S106"9Replace this use of System.out or System.err by a logger.(Ê¨éû
-M	java:S106."9Replace this use of System.out or System.err by a logger.(ð•êL
-J
-java:S28640"4Iterate over the "entrySet" instead of the "keySet".(€ÙŠ
-S	java:S1062"9Replace this use of System.out or System.err by a logger.(©îÞªüÿÿÿÿ

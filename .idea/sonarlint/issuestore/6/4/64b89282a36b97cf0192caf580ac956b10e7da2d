@@ -1,6 +1,0 @@
-
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(À šËýÿÿÿÿ
-<
-java:S1170"!Make this final field static too.(ÕÔûùùÿÿÿÿ
-R
-java:S1144"7Remove this unused private "RacerBehavior" constructor.(û¨àíøÿÿÿÿ
