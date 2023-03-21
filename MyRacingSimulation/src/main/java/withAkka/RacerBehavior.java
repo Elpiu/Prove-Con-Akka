@@ -1,12 +1,14 @@
 package withAkka;
 
 import akka.actor.typed.Behavior;
+import akka.actor.typed.PostStop;
 import akka.actor.typed.javadsl.AbstractBehavior;
 import akka.actor.typed.javadsl.ActorContext;
 import akka.actor.typed.javadsl.Behaviors;
 import akka.actor.typed.javadsl.Receive;
 import java.util.Random;
 import withAkka.commands.ICommand;
+import withAkka.commands.RacerFinished;
 import withAkka.commands.StartRunning;
 import withAkka.commands.WhereAreYou;
 import withAkka.commands.WhereIAm;
@@ -31,14 +33,21 @@ public class RacerBehavior extends AbstractBehavior<ICommand> {
 
   @Override
   public Receive<ICommand> createReceive() {
-    return newReceiveBuilder()
-             .onMessage(StartRunning.class, command -> {
+    return newReceiveBuilder().onMessage(StartRunning.class, command -> {
       start(command.getRaceLength());
       return this;
     }).onMessage(WhereAreYou.class, command -> {
-      command.getSender().tell(new WhereIAm(getContext().getSelf(),
-        whereIAm()));
+      double myPosituon = whereIAm();
+      command.getSender().tell(new WhereIAm(getContext().getSelf(), myPosituon));
+      if (myPosituon == raceLength) {
+        command.getSender().tell(new RacerFinished(getContext().getSelf()));
+        //Ignora i prossimi messaggi e vai idle
+        return Behaviors.ignore();
+      }
       return this;
+    }).onSignal(PostStop.class, signal -> {
+      System.out.println(signal);
+      return Behaviors.same();
     }).build();
   }
 
@@ -56,7 +65,6 @@ public class RacerBehavior extends AbstractBehavior<ICommand> {
     }
     return currentPosition;
   }
-
 
   private double getMaxSpeed() {
     return defaultAverageSpeed * (1 + ((double) averageSpeedAdjustmentFactor / 100));

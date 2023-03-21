@@ -26,7 +26,7 @@ public class WorkerBehavior extends AbstractBehavior<ICommand> {
     return newReceiveBuilder().onMessage(StartCommand.class, command -> {
       BigInteger bigProbPrime = findBigPrimeNumber();
       command.getSender().tell(new ResultCommand(getContext().getSelf(), bigProbPrime));
-      return this;
+      return Behaviors.same();
     }).build();
   }
 
